@@ -1,20 +1,14 @@
 import * as React from 'react';
 import { supabaseClient } from './supabaseClient';
-
-interface Product {
-  id: number;
-  title: string;
-}
+import { Products, Recipes } from './interfaces/api';
 
 function App() {
   const [count, setCount] = React.useState(0);
-  const [data, setData] = React.useState<Product[]>([]);
+  const [data, setData] = React.useState<Products[]>([]);
 
   const loadData = async () => {
-    const { data, error } = await supabaseClient
-      .from('products')
-      .select()
-      .eq('id', 5);
+    const { data, error } = await supabaseClient.from('products').select();
+    // .eq('id', 5); //
 
     if (!error) {
       setData(data);
