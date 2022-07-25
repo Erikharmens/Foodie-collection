@@ -1,34 +1,46 @@
 import * as React from 'react';
-import reactLogo from './assets/react.svg';
+import { supabaseClient } from './supabaseClient';
+
+interface Product {
+  id: number;
+  title: string;
+}
 
 function App() {
   const [count, setCount] = React.useState(0);
+  const [data, setData] = React.useState<Product[]>([]);
 
+  const loadData = async () => {
+    const { data, error } = await supabaseClient
+      .from('products')
+      .select()
+      .eq('id', 5);
+
+    if (!error) {
+      setData(data);
+    }
+  };
+
+  React.useEffect(() => {
+    loadData();
+  }, []);
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-
+    <>
       <h1>Foodie Collection Inc</h1>
       <div className="card">
+        {JSON.stringify(data)}
         <button
           type="button"
           className="bg-blue-400"
           onClick={() => setCount((count) => count + 1)}
         >
-          count is {count}
+          count is {count} {import.meta.env.VITE_SUPABASE_URL}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-    </div>
+    </>
   );
 }
 
