@@ -2,9 +2,10 @@
 
 ## Created with React + Vite and Tailwind
 
-- npm init vite foodie-collection. Select react -> react-ts.
+## Requirements
 
-- npm add react-router-dom
+- Node 16.14 or higher
 
-- npm install -D tailwindcss
-
+## How to
+- npm install 
+- npm run dev
