@@ -1,10 +1,10 @@
-export interface Products {
+export interface Product {
   id: number;
   title: string;
 }
 
-export interface Recipes {
+export interface Recipe {
   id: number;
   title: string;
-  items: JSON;
+  items: string | number;
 }
