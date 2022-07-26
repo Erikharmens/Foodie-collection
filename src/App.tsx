@@ -19,7 +19,21 @@ function App() {
   }, []);
   return (
     <>
-      <h1>Foodie Collection Inc</h1>
+      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+        <h1 className="font-bold leading-tight pb-4 text-4xl text-gray-800">
+          Foodie Collection
+        </h1>
+        <h2 className="font-medium leading-tight text-2xl pb-4 text-blue-500">
+          Don&apos;t know what to eat? We have{' '}
+          <span className="font-bold text-blue-600">{data.length}</span> recipes
+          for your next meal!
+        </h2>
+        <h2 className="font-light text-2xl text-black-400">
+          Grab your food items and find a recipe that fits your inventory
+        </h2>
+      </div>
+
+      <h1 className="">Foodie Collection Inc</h1>
       <div className="card">
         {JSON.stringify(data)}
         <button
