@@ -34,7 +34,8 @@ function App() {
         </h2>
         <Button
           border="none"
-          color="#7197e1"
+          color="#e9e9e9"
+          backgroundColor="#213f76"
           height="40px"
           onClick={() => console.log('You clicked me')}
           radius="4px"
