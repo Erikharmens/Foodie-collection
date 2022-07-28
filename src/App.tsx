@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { supabaseClient } from './supabaseClient';
 import { Product, Recipe } from './interfaces/api';
+import Button from './components/Button';
 
 function App() {
   const [count, setCount] = React.useState(0);
@@ -28,9 +29,18 @@ function App() {
           <span className="font-bold text-blue-600">{data.length}</span> recipes
           for your next meal!
         </h2>
-        <h2 className="font-light text-2xl text-black-400">
+        <h2 className="font-light text-2xl text-black-400 pb-8">
           Grab your food items and find a recipe that fits your inventory
         </h2>
+        <Button
+          border="none"
+          color="#7197e1"
+          height="40px"
+          onClick={() => console.log('You clicked me')}
+          radius="4px"
+          width="120px"
+          children="Click me"
+        />
       </div>
 
       <h1 className="">Foodie Collection Inc</h1>
