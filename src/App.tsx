@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { supabaseClient } from './supabaseClient';
 import { Product, Recipe } from './interfaces/api';
+import './index.css';
 import Button from './components/Button';
 
 function App() {
@@ -32,16 +33,65 @@ function App() {
         <h2 className="font-light text-2xl text-black-400 pb-8">
           Grab your food items and find a recipe that fits your inventory
         </h2>
+      </div>
+      <div className="container mx-auto my-8 py-8 px-8 rounded-md bg-blue-100">
         <Button
-          border="none"
-          color="#e9e9e9"
-          backgroundColor="#213f76"
-          height="40px"
-          onClick={() => console.log('You clicked me')}
-          radius="4px"
-          width="120px"
-          children="Click me"
-        />
+          onClick={() => alert('Button 1 is clicked!')}
+          variant="default"
+          size="lg"
+        >
+          Default
+        </Button>
+        <Button
+          onClick={() => alert('Button 2 is clicked!')}
+          variant="primary"
+          size="lg"
+        >
+          Primary
+        </Button>
+        <Button
+          onClick={() => alert('Button 3 is clicked!')}
+          variant="info"
+          size="lg"
+        >
+          Info
+        </Button>
+        <Button
+          onClick={() => alert('Button 4 is clicked!')}
+          variant="warning"
+          size="lg"
+        >
+          Warning
+        </Button>
+        <Button
+          onClick={() => alert('Button 5 is clicked!')}
+          variant="success"
+          size="lg"
+        >
+          Success
+        </Button>
+        <Button
+          onClick={() => alert('Button 6 is clicked!')}
+          variant="danger"
+          size="lg"
+        >
+          Danger
+        </Button>
+        <Button
+          onClick={() => alert('Button 6 is clicked!')}
+          variant="dark"
+          size="lg"
+        >
+          Dark
+        </Button>
+        <Button
+          onClick={() => alert('Button 6 is clicked!')}
+          variant="default"
+          size="lg"
+          disabled={true}
+        >
+          Disabled
+        </Button>
       </div>
 
       <h1 className="">Foodie Collection Inc</h1>

@@ -1,41 +1,31 @@
 import React from 'react';
 
 interface Props {
-  border: string;
-  color: string;
   children: React.ReactNode;
-  height: string;
   onClick: () => void;
-  radius: string;
-  width: string;
-  backgroundColor: string;
+  variant?: string;
+  size?: string;
+  disabled?: boolean;
 }
 
-const Button: React.FC<Props> = ({
-  border,
-  color,
+const PrimaryButton: React.FC<Props> = ({
   children,
-  height,
   onClick,
-  radius,
-  width,
-  backgroundColor,
+  variant = 'default',
+  size = 'md',
+  disabled,
+  ...rest
 }) => {
   return (
     <button
+      className={`btn ${variant} ${size}` + (disabled ? 'disabled' : '')}
       onClick={onClick}
-      style={{
-        color,
-        border,
-        borderRadius: radius,
-        height,
-        width,
-        backgroundColor,
-      }}
+      disabled={disabled}
+      {...rest}
     >
       {children}
     </button>
   );
 };
 
-export default Button;
+export default PrimaryButton;
