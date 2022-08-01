@@ -6,6 +6,7 @@ import Button from './components/Button';
 
 function App() {
   const [count, setCount] = React.useState(0);
+  const [egg, setEgg] = React.useState(0);
   const [data, setData] = React.useState<Product[]>([]);
 
   const loadData = async () => {
@@ -35,57 +36,58 @@ function App() {
         </h2>
       </div>
       <div className="container mx-auto my-8 py-8 px-8 rounded-md bg-blue-100">
+        <h2>Clicked {count} times</h2>
         <Button
-          onClick={() => alert('Button 1 is clicked!')}
+          onClick={() => setCount((count) => count + 1)}
           variant="default"
           size="lg"
         >
           Default
         </Button>
         <Button
-          onClick={() => alert('Button 2 is clicked!')}
+          onClick={() => console.log('Button 2 is clicked!')}
           variant="primary"
           size="lg"
         >
           Primary
         </Button>
         <Button
-          onClick={() => alert('Button 3 is clicked!')}
+          onClick={() => console.log('Button 3 is clicked!')}
           variant="info"
           size="lg"
         >
           Info
         </Button>
         <Button
-          onClick={() => alert('Button 4 is clicked!')}
+          onClick={() => console.log('Button 4 is clicked!')}
           variant="warning"
           size="lg"
         >
           Warning
         </Button>
         <Button
-          onClick={() => alert('Button 5 is clicked!')}
+          onClick={() => console.log('Button 5 is clicked!')}
           variant="success"
           size="lg"
         >
           Success
         </Button>
         <Button
-          onClick={() => alert('Button 6 is clicked!')}
+          onClick={() => console.log('Button 6 is clicked!')}
           variant="danger"
           size="lg"
         >
           Danger
         </Button>
         <Button
-          onClick={() => alert('Button 6 is clicked!')}
+          onClick={() => console.log('Button 7 is clicked!')}
           variant="dark"
           size="lg"
         >
           Dark
         </Button>
         <Button
-          onClick={() => alert('Button 6 is clicked!')}
+          onClick={() => console.log('Button 7 is clicked!')}
           variant="default"
           size="lg"
           disabled={true}
@@ -94,20 +96,28 @@ function App() {
         </Button>
       </div>
 
-      <h1 className="">Foodie Collection Inc</h1>
-      <div className="card">
-        {JSON.stringify(data)}
-        <button
-          type="button"
-          className="bg-blue-400"
-          onClick={() => setCount((count) => count + 1)}
+      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+        <h1 class="font-medium leading-tight text-3xl ml-2 mt-0 mb-2 text-blue-900">
+          Eggs: {egg}
+        </h1>
+        <Button
+          onClick={() => setEgg((egg) => egg + 1)}
+          variant="primary"
+          size="lg"
         >
-          count is {count} {import.meta.env.VITE_SUPABASE_URL}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+          +
+        </Button>
+        <Button
+          onClick={() => setEgg((egg) => egg - 1)}
+          variant="primary"
+          size="lg"
+        >
+          -
+        </Button>
       </div>
+
+      <h1 className="">Foodie Collection Inc</h1>
+      <div className="card">{JSON.stringify(data)}</div>
     </>
   );
 }
