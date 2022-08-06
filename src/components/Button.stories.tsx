@@ -4,7 +4,7 @@ import React from 'react';
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '/Button.tsx';
+import Button from './Button';
 
 export default {
   /* 👇 The title prop is optional.

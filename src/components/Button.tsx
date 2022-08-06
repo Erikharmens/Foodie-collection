@@ -1,31 +1,23 @@
 import React from 'react';
 
-interface Props {
+interface Props
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   children: React.ReactNode;
-  onClick: () => void;
-  variant?: string;
-  size?: string;
-  disabled?: boolean;
+  variant: string;
+  size: string;
 }
 
-const PrimaryButton: React.FC<Props> = ({
-  children,
-  onClick,
-  variant = 'default',
-  size = 'md',
-  disabled,
-  ...rest
-}) => {
-  return (
-    <button
-      className={`btn ${variant} ${size}` + (disabled ? 'disabled' : '')}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+const Button: React.FC<Props> = ({ variant, size, children, ...props }) => (
+  <button
+    className={`btn ${variant} ${size} shadow-md `}
+    type="button"
+    {...props}
+  >
+    {children}
+  </button>
+);
 
-export default PrimaryButton;
+export default Button;

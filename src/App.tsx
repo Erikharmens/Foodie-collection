@@ -3,6 +3,9 @@ import { supabaseClient } from './supabaseClient';
 import { Product, Recipe } from './interfaces/api';
 import './index.css';
 import Button from './components/Button';
+import List from './components/List';
+import FoodTable from './components/FoodTable';
+import Navbar from './components/Navbar';
 
 function App() {
   const [count, setCount] = React.useState(0);
@@ -22,7 +25,8 @@ function App() {
   }, []);
   return (
     <>
-      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+      <Navbar />
+      <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
         <h1 className="font-bold leading-tight pb-4 text-4xl text-gray-800">
           Foodie Collection
         </h1>
@@ -51,34 +55,7 @@ function App() {
         >
           Primary
         </Button>
-        <Button
-          onClick={() => console.log('Button 3 is clicked!')}
-          variant="info"
-          size="lg"
-        >
-          Info
-        </Button>
-        <Button
-          onClick={() => console.log('Button 4 is clicked!')}
-          variant="warning"
-          size="lg"
-        >
-          Warning
-        </Button>
-        <Button
-          onClick={() => console.log('Button 5 is clicked!')}
-          variant="success"
-          size="lg"
-        >
-          Success
-        </Button>
-        <Button
-          onClick={() => console.log('Button 6 is clicked!')}
-          variant="danger"
-          size="lg"
-        >
-          Danger
-        </Button>
+
         <Button
           onClick={() => console.log('Button 7 is clicked!')}
           variant="dark"
@@ -90,30 +67,36 @@ function App() {
           onClick={() => console.log('Button 7 is clicked!')}
           variant="default"
           size="lg"
-          disabled={true}
+          disabled
         >
           Disabled
         </Button>
       </div>
 
       <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
-        <h1 class="font-medium leading-tight text-3xl ml-2 mt-0 mb-2 text-blue-900">
+        <h1 className="font-medium leading-tight text-3xl ml-2 mt-0 mb-2 text-blue-900">
           Eggs: {egg}
         </h1>
         <Button
           onClick={() => setEgg((egg) => egg + 1)}
-          variant="primary"
+          variant="dark"
           size="lg"
         >
           +
         </Button>
         <Button
           onClick={() => setEgg((egg) => egg - 1)}
-          variant="primary"
+          variant="dark"
           size="lg"
         >
           -
         </Button>
+      </div>
+      <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-blue-100">
+        <List />
+      </div>
+      <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-blue-100">
+        <FoodTable />
       </div>
 
       <h1 className="">Foodie Collection Inc</h1>
