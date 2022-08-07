@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply disabled:hover:bg-gray-500 font-bold py-2 px-4 rounded disabled:bg-gray-500 disabled:cursor-not-allowed;
+  }
+  .sm {
+    @apply px-2;
+  }
+
+  .md {
+    @apply px-4;
+  }
+
+  .lg {
+    @apply px-8;
+  }
+
+  .xl {
+    @apply px-16;
+  }
+
+  /*button colors: default, primary, info, success, warning, danger, dark */
+  .default {
+    @apply hover:bg-gray-700 bg-gray-800 text-gray-200;
+  }
+
+  .primary {
+    @apply hover:bg-blue-700 bg-blue-900 text-white;
+  }
+
+  .success {
+    @apply bg-green-500 text-white;
+  }
+  .success:hover {
+    @apply bg-green-600 text-white;
+  }
+
+  .info {
+    @apply bg-blue-500 text-white;
+  }
+  .info:hover {
+    @apply bg-blue-600 text-white;
+  }
+
+  .warning {
+    @apply bg-yellow-400 text-white;
+  }
+  .warning:hover {
+    @apply bg-yellow-500 text-white;
+  }
+
+  .danger {
+    @apply bg-red-500 text-white;
+  }
+  .danger:hover {
+    @apply bg-red-600 text-white;
+  }
+
+  .dark {
+    @apply bg-gray-800 text-white;
+  }
+  .dark:hover {
+    @apply bg-gray-900 text-white;
+  }
+
+  .disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+  .disabled:hover {
+    @apply opacity-50 cursor-not-allowed;
+  }
+}
