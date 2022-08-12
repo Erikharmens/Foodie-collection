@@ -27,12 +27,14 @@ function App() {
     <>
       <Navbar />
       <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
-        <h1 className="font-bold text-xl pb-8">
-          Essential cooking ingredients
+        <h1 className="font-bold text-2xl pb-8">
+          Let's start with the essential cooking ingredients.
         </h1>
-        <h1 className="font-bold text-2x1 pb-8">I have these available:</h1>
+        <h1 className="font-bold text-2x1 pb-8 underline">
+          I have the following ingredients available:
+        </h1>
 
-        <label class="inline-flex relative items-center mb-4 cursor-pointer">
+        <label className="inline-flex relative items-center mb-4 cursor-pointer">
           <input
             type="checkbox"
             value=""
@@ -115,7 +117,7 @@ function App() {
           variant="primary"
           size="lg"
         >
-          Save ingredients
+          Continue / Save
         </Button>
       </div>
       <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
@@ -185,7 +187,9 @@ function App() {
         </Button>
       </div>
       <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-gray-300">
-        <List />
+        <List title="List title" withButtons>
+          Test
+        </List>
       </div>
       <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-blue-100">
         <FoodTable />
