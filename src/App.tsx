@@ -191,9 +191,6 @@ function App() {
           Test
         </List>
       </div>
-      <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-blue-100">
-        <FoodTable />
-      </div>
 
       <h1 className="">Foodie Collection Inc</h1>
       <div className="card">{JSON.stringify(data)}</div>
