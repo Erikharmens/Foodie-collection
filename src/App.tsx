@@ -6,6 +6,7 @@ import Button from './components/Button';
 import List from './components/List';
 import FoodTable from './components/FoodTable';
 import Navbar from './components/Navbar';
+import ProductList from './components/ProductList';
 
 function App() {
   const [count, setCount] = React.useState(0);
@@ -167,6 +168,9 @@ function App() {
         </Button>
       </div>
 
+      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+        <ProductList />
+      </div>
       <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
         <h1 className="font-medium leading-tight text-3xl ml-2 mt-0 mb-2 text-blue-900">
           Eggs: {egg}
