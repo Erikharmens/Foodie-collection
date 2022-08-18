@@ -169,6 +169,9 @@ function App() {
       </div>
 
       <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+        <h1 className="text-xl font-bold mb-4 ml-2">
+          Add your ingredients here
+        </h1>
         <ProductList />
       </div>
       <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">

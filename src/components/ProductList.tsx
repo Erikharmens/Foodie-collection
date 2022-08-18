@@ -25,10 +25,13 @@ function ProductList() {
   };
 
   const addProduct = () => {
-    setProducts([...products, { name: '', qty: 0, unit: '' }]);
+    setProducts([...products, { id: 0, name: '', qty: 0, unit: '' }]);
   };
 
-  const handleDelete = (index: number) => {
+  const handleDelete = (
+    event: React.MouseEventHandler<HTMLButtonElement>,
+    index: number
+  ) => {
     const productsCopy = [...products];
     productsCopy.splice(index, 1);
 
@@ -47,6 +50,7 @@ function ProductList() {
               value={product.name}
               onChange={(event) => handleNameChange(event, index)}
             />
+
             <input
               className="bg-gray-50 border border-gray-300 text-blue-900 text-sm rounded-lg p-2"
               type="number"
@@ -62,7 +66,7 @@ function ProductList() {
             <button
               className="bg-red-900 px-8 text-gray-200 p-1 rounded ml-2"
               type="button"
-              onClick={handleDelete}
+              onClick={() => handleDelete(product.id, index)}
             >
               Remove
             </button>
