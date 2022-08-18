@@ -36,7 +36,8 @@
     "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": "off",
     "react/require-default-props": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "comma-dangle": "off"
   },
   "settings": {
     "import/resolver": {
