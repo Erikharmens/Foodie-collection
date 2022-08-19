@@ -29,7 +29,7 @@ function App() {
       <Navbar />
       <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
         <h1 className="font-bold text-2xl pb-8">
-          Let's start with the essential cooking ingredients.
+          Let&apos;s start with the essential cooking ingredients.
         </h1>
         <h1 className="font-bold text-2x1 pb-8 underline">
           I have the following ingredients available:

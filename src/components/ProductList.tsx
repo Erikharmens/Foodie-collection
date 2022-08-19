@@ -1,37 +1,43 @@
 import * as React from 'react';
-
-interface Product {
-  name: string;
-  qty: number;
-  unit: string;
-  id: number;
-}
+import type { StoredProduct } from '../interfaces/api';
+import ListItem from './ListItem';
 
 function ProductList() {
-  const [products, setProducts] = React.useState<Product[]>([
+  const [products, setProducts] = React.useState<StoredProduct[]>([
     { id: 0, name: 'Butter', qty: 20, unit: 'g' },
-    { id: 1, name: 'Bread', qty: 2, unit: 'slices' },
     { id: 2, name: 'Tomato', qty: 3, unit: 'pieces' },
+    { id: 1, name: 'Bread', qty: 2, unit: 'slices' },
   ]);
 
-  const handleNameChange = (
+  const handlePropChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    index: number
+    index: number,
+    key: keyof StoredProduct
   ) => {
     const productsCopy = [...products];
-    productsCopy[index].name = event.target.value;
+
+    if (key === 'qty' || key === 'id') {
+      productsCopy[index][key] = event.target.valueAsNumber || 0;
+    } else {
+      productsCopy[index][key] = event.target.value;
+    }
 
     setProducts(productsCopy);
   };
 
   const addProduct = () => {
-    setProducts([...products, { id: 0, name: '', qty: 0, unit: '' }]);
+    // takes list of products, sorts it by their IDs, grabs the highest ID
+    const productsCopy = [...products];
+    productsCopy.sort((a, b) => b.id - a.id);
+    const highestId = productsCopy[0].id;
+
+    setProducts([
+      ...products,
+      { id: highestId + 1, name: '', qty: 0, unit: '' },
+    ]);
   };
 
-  const handleDelete = (
-    event: React.MouseEventHandler<HTMLButtonElement>,
-    index: number
-  ) => {
+  const handleDelete = (index: number) => {
     const productsCopy = [...products];
     productsCopy.splice(index, 1);
 
@@ -42,35 +48,12 @@ function ProductList() {
     <div className="grid-cols-4">
       <ul>
         {products.map((product, index) => (
-          <li>
-            {product.id}
-            <input
-              className="bg-gray-50 border border-gray-300 text-blue-900 text-sm rounded-lg p-2"
-              type="text"
-              value={product.name}
-              onChange={(event) => handleNameChange(event, index)}
-            />
-
-            <input
-              className="bg-gray-50 border border-gray-300 text-blue-900 text-sm rounded-lg p-2"
-              type="number"
-              value={product.qty}
-              onChange={(event) => handleNameChange(event, index)}
-            />
-            <input
-              className="bg-gray-50 border border-gray-300 text-blue-900 text-sm rounded-lg p-2 w-24"
-              type="text"
-              value={product.unit}
-              onChange={(event) => handleNameChange(event, index)}
-            />
-            <button
-              className="bg-red-900 px-8 text-gray-200 p-1 rounded ml-2"
-              type="button"
-              onClick={() => handleDelete(product.id, index)}
-            >
-              Remove
-            </button>
-          </li>
+          <ListItem
+            product={product}
+            handlePropChange={handlePropChange}
+            handleDelete={handleDelete}
+            index={index}
+          />
         ))}
       </ul>
       <button
