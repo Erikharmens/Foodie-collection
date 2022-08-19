@@ -20,7 +20,7 @@
   },
   "overrides": [
     {
-      "files": ["**/*.stories.*"],
+      "files": ["**/*.stories.*", "**/*.test.*", "**/*.config.*"],
       "rules": {
         "import/no-extraneous-dependencies": "off"
       }
