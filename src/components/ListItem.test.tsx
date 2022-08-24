@@ -4,6 +4,7 @@ import { describe, it, expect, vi } from 'vitest';
 import '@testing-library/jest-dom';
 
 import ListItem from './ListItem';
+import ProductList from './ProductList';
 
 describe('ListItem component', () => {
   const handlePropChange = vi.fn();
@@ -29,7 +30,8 @@ describe('ListItem component', () => {
     expect(getByDisplayValue(100)).toBeInTheDocument();
   });
 
-  it.todo('should change name when typing in the input');
+  it('should change name when typing in the input', () => {});
+
   it.todo('should change quantity when typing in the input');
   it.todo('should set quantity to 0 when clear input');
   it.todo('should change unit when typing in the input');

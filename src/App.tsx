@@ -27,7 +27,8 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
+
+      <div className="container mx-auto py-8 px-8 my-24 rounded-md bg-blue-100">
         <h1 className="font-bold text-2xl pb-8">
           Let&apos;s start with the essential cooking ingredients.
         </h1>
@@ -121,6 +122,12 @@ function App() {
           Continue / Save
         </Button>
       </div>
+
+      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
+        <h1 className="text-xl font-bold mb-4">Add your ingredients here</h1>
+        <ProductList />
+      </div>
+
       <div className="container mx-auto py-8 px-8 mt-24 rounded-md bg-blue-100">
         <h1 className="font-bold leading-tight pb-4 text-4xl text-gray-800">
           Foodie Collection
@@ -168,31 +175,6 @@ function App() {
         </Button>
       </div>
 
-      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
-        <h1 className="text-xl font-bold mb-4 ml-2">
-          Add your ingredients here
-        </h1>
-        <ProductList />
-      </div>
-      <div className="container mx-auto py-8 px-8 rounded-md bg-blue-100">
-        <h1 className="font-medium leading-tight text-3xl ml-2 mt-0 mb-2 text-blue-900">
-          Eggs: {egg}
-        </h1>
-        <Button
-          onClick={() => setEgg((egg) => egg + 1)}
-          variant="dark"
-          size="lg"
-        >
-          +
-        </Button>
-        <Button
-          onClick={() => setEgg((egg) => egg - 1)}
-          variant="dark"
-          size="lg"
-        >
-          -
-        </Button>
-      </div>
       <div className="container mx-auto py-8 mt-8 px-8 rounded-md bg-gray-300">
         <List title="List title" withButtons>
           Test

@@ -45,26 +45,33 @@ function ProductList() {
   };
 
   return (
-    <div className="grid-cols-4">
-      <ul>
-        {products.map((product, index) => (
-          <ListItem
-            product={product}
-            handlePropChange={handlePropChange}
-            handleDelete={handleDelete}
-            index={index}
-          />
-        ))}
-      </ul>
+    <div className="">
+      <form>
+        <ul>
+          {products.map((product, index) => (
+            <ListItem
+              product={product}
+              handlePropChange={handlePropChange}
+              handleDelete={handleDelete}
+              index={index}
+            />
+          ))}
+        </ul>
+      </form>
       <button
-        className="bg-blue-900 px-8 text-gray-100 mt-8 rounded p-2"
+        className="bg-blue-700 px-8 text-gray-100 mt-8 rounded p-2 block"
         type="button"
         onClick={addProduct}
       >
         Add new ingredient
       </button>
-      <br />
-      {JSON.stringify(products)}
+      <button
+        className="bg-green-800 px-8 text-gray-100 mt-8 rounded p-2 block"
+        type="submit"
+        disabled
+      >
+        Save ingredient list
+      </button>
     </div>
   );
 }
