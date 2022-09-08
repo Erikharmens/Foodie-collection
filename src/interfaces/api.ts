@@ -14,3 +14,10 @@ export interface Recipe {
   title: string;
   items: RecipeItem[];
 }
+
+export interface StoredProduct {
+  id: number;
+  name: string;
+  qty: number;
+  unit: string;
+}
