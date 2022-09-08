@@ -16,10 +16,14 @@ function ProductList() {
   ) => {
     const productsCopy = [...products];
 
+    const targetObject = productsCopy[index];
+
+    if (!targetObject) return; // if object is not found - exit
+
     if (key === 'qty' || key === 'id') {
-      productsCopy[index][key] = event.target.valueAsNumber || 0;
+      targetObject[key] = event.target.valueAsNumber || 0;
     } else {
-      productsCopy[index][key] = event.target.value;
+      targetObject[key] = event.target.value;
     }
 
     setProducts(productsCopy);
@@ -29,7 +33,8 @@ function ProductList() {
     // takes list of products, sorts it by their IDs, grabs the highest ID
     const productsCopy = [...products];
     productsCopy.sort((a, b) => b.id - a.id);
-    const highestId = productsCopy[0].id;
+
+    const highestId = productsCopy[0] ? productsCopy[0].id : 0;
 
     setProducts([
       ...products,
@@ -45,11 +50,12 @@ function ProductList() {
   };
 
   return (
-    <div className="">
+    <div>
       <form>
         <ul>
           {products.map((product, index) => (
             <ListItem
+              key={product.id}
               product={product}
               handlePropChange={handlePropChange}
               handleDelete={handleDelete}
@@ -72,6 +78,7 @@ function ProductList() {
       >
         Save ingredient list
       </button>
+      <div className="card">{JSON.stringify(products)}</div>
     </div>
   );
 }

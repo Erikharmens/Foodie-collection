@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { supabaseClient } from './supabaseClient';
-import { Product, Recipe } from './interfaces/api';
+import { Product } from './interfaces/api';
 import './index.css';
 import Button from './components/Button';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 
 function App() {
-  const [count, setCount] = React.useState(0);
-  const [egg, setEgg] = React.useState(0);
   const [data, setData] = React.useState<Product[]>([]);
 
   const loadData = async () => {
@@ -53,7 +51,10 @@ function App() {
           I have the following ingredients available:
         </h1>
         <form>
-          <label className="inline-flex relative items-center mb-4 cursor-pointer">
+          <label
+            htmlFor="default-toggle"
+            className="inline-flex relative items-center mb-4 cursor-pointer"
+          >
             <input
               type="checkbox"
               value=""

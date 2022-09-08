@@ -15,17 +15,16 @@ const PrimaryButton: React.FC<Props> = ({
   size = 'md',
   disabled,
   ...rest
-}) => {
-  return (
-    <button
-      className={`btn ${variant} ${size}` + (disabled ? 'disabled' : '')}
-      onClick={onClick}
-      disabled={disabled}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+}) => (
+  <button
+    className={`btn ${variant} ${size} ${disabled ? 'disabled' : ''}`}
+    onClick={onClick}
+    disabled={disabled}
+    type="button"
+    {...rest}
+  >
+    {children}
+  </button>
+);
 
 export default PrimaryButton;
