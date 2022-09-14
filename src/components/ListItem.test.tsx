@@ -94,6 +94,70 @@ describe('ListItem component', () => {
     expect(fakeState.qty).toEqual(20);
   });
 
-  it.todo('should set quantity to 0 when clear input');
+  it('should change name when typing in the input', () => {
+    // Arrange
+    const fakeState = {
+      id: 5,
+      name: 'Garlic',
+      qty: 20,
+      unit: 'g',
+    };
+
+    const handlePropChange = vi.fn((e: { target: HTMLInputElement }) => {
+      fakeState.name = e.target.value;
+    });
+
+    const { getByDisplayValue } = render(
+      <ListItem
+        handlePropChange={handlePropChange}
+        handleDelete={handleDelete}
+        index={0}
+        product={fakeState}
+      />
+    );
+
+    // Act
+
+    fireEvent.change(getByDisplayValue('g'), {
+      target: { value: 'kilo' },
+    });
+
+    // Assert
+    expect(handlePropChange).toBeCalledTimes(1);
+    expect(fakeState.name).toEqual('kilo');
+  });
+
   it.todo('should change unit when typing in the input');
+  it.todo('should set quantity to 0 when clear input');
 });
+
+/* it('should change unit when typing in the input'), () => {
+  // Arrange
+  const fakeState = {
+    id: 5,
+    name: 'Garlic',
+    qty: 20,
+    unit: 'g'
+  };
+
+  const handlePropChange = vi.fn((e: { target: HTMLInputElement }) => {
+    fakeState.unit = e.target.value;
+  });
+
+  const { getByLabelText } = render(
+    <ListItem
+    handlePropChange={handlePropChange}
+    handleDelete={handleDelete}
+    index={0}
+    product={fakeState}
+    />
+  );
+
+  // Act
+  const element = getByLabelText(/unit/gi);
+
+  fireEvent.change(element, {target: {value: 'kilo'} });
+
+  expect(element).toBeInTheDocument();
+  expect(fakeState.unit).toEqual('kilo')
+}); */
