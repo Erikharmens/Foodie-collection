@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import '@testing-library/jest-dom';
 
 import ListItem from './ListItem';
-import ProductList from './ProductList';
 
 describe('ListItem component', () => {
   const handlePropChange = vi.fn();
@@ -94,7 +93,7 @@ describe('ListItem component', () => {
     expect(fakeState.qty).toEqual(20);
   });
 
-  it('should change name when typing in the input', () => {
+  it('should change unit when typing in the input', () => {
     // Arrange
     const fakeState = {
       id: 5,
@@ -107,7 +106,7 @@ describe('ListItem component', () => {
       fakeState.name = e.target.value;
     });
 
-    const { getByDisplayValue } = render(
+    const { getByTestId, getByRole } = render(
       <ListItem
         handlePropChange={handlePropChange}
         handleDelete={handleDelete}
@@ -118,13 +117,19 @@ describe('ListItem component', () => {
 
     // Act
 
-    fireEvent.change(getByDisplayValue('g'), {
-      target: { value: 'kilo' },
+    fireEvent.click(getByTestId('select-container'));
+
+    fireEvent.change(getByTestId('select-input'), {
+      target: { value: 'km' },
     });
+
+    expect(getByRole('list')).toBeInTheDocument();
+
+    fireEvent.click(getByRole('option'));
 
     // Assert
     expect(handlePropChange).toBeCalledTimes(1);
-    expect(fakeState.name).toEqual('kilo');
+    expect(fakeState.name).toEqual('km/h');
   });
 
   it.todo('should change unit when typing in the input');

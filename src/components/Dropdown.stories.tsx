@@ -4,6 +4,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Dropdown from './Dropdown';
 
+let value = 'A';
+const setValue = (newVal: string) => {
+  value = newVal;
+};
+
 export default {
   /* 👇 The title prop is optional.
    * See https://storybook.js.org/docs/react/configure/overview#configure-story-loading
@@ -13,10 +18,9 @@ export default {
   component: Dropdown,
   argTypes: {},
   args: {
-    title: 'Defaul title',
-    withButtons: false,
-    children:
-      'This is a long text, i like pancakes and biking around the city centre',
+    items: ['A', 'B', 'C'],
+    value,
+    setValue,
   },
 } as ComponentMeta<typeof Dropdown>;
 
@@ -26,13 +30,4 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 
 export const Default = Template.bind({});
 
-let value = 'A';
-const setValue = (newVal: string) => {
-  value = newVal;
-};
-
-Default.args = {
-  items: ['A', 'B', 'C'],
-  value,
-  setValue,
-};
+Default.args = {};

@@ -23,10 +23,12 @@ const Dropdown: React.FC<Props> = ({ items, id, value, setValue }) => {
       onKeyDown={() => setOpen(true)}
       role="menuitem"
       tabIndex={0}
+      data-testid="select-container"
     >
       <div className="bg-gray-50 border relative border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
         <input
           id={id}
+          data-testid="select-input"
           className={`${
             filterText ? 'bg-white' : 'bg-transparent'
           } absolute left-0 top-0 bottom-0 right-0 px-3`}
