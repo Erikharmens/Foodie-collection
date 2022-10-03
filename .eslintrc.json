@@ -28,6 +28,8 @@
   ],
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
     "react/jsx-filename-extension": "off",
     "react/jsx-one-expression-per-line": "off",
     "no-shadow": "off",
