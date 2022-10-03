@@ -2,7 +2,9 @@ import * as React from 'react';
 import type { StoredProduct } from '../interfaces/api';
 import ListItem from './ListItem';
 
-function ProductList() {
+interface Props {}
+
+const ProductList: React.FC<Props> = () => {
   const [products, setProducts] = React.useState<StoredProduct[]>([
     { id: 0, name: 'Butter', qty: 20, unit: 'g' },
     { id: 2, name: 'Tomato', qty: 3, unit: 'pieces' },
@@ -81,6 +83,6 @@ function ProductList() {
       <div className="card">{JSON.stringify(products)}</div>
     </div>
   );
-}
+};
 
 export default ProductList;
